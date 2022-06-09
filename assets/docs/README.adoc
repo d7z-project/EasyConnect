@@ -1,0 +1,12 @@
+= EasyConnect Design
+
+== 核心功能
+
+
+
+[plantuml]
+----
+@startuml
+A->B
+@enduml
+----
