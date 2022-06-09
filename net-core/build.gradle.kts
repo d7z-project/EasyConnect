@@ -4,7 +4,6 @@ plugins {
     kotlin("jvm")
     id("org.jlleitschuh.gradle.ktlint")
     `maven-publish`
-    application
 }
 java.sourceCompatibility = JavaVersion.VERSION_17
 
@@ -16,17 +15,11 @@ java {
     modularity.inferModulePath.set(true)
 }
 
-application {
-    // 启动类配置
-    mainModule.set("gradle.kotlin.template")
-    mainClass.set("com.github.template.MainKt")
-}
-
 dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
-    implementation(libs.junit.jupiter)
-    implementation(libs.junit.platform.launcher)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.junit.platform.launcher)
 }
 
 tasks.test {

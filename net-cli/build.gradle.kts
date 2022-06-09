@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm")
     id("org.jlleitschuh.gradle.ktlint")
-    `maven-publish`
+    id("org.beryx.jlink")
     application
 }
 java.sourceCompatibility = JavaVersion.VERSION_17
@@ -18,15 +18,17 @@ java {
 
 application {
     // 启动类配置
-    mainModule.set("gradle.kotlin.template")
-    mainClass.set("com.github.template.MainKt")
+    mainModule.set("org.d7z.cli")
+    mainClass.set("org.d7z.cli.MainKt")
 }
 
 dependencies {
+    implementation(project(":net-core"))
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
-    implementation(libs.junit.jupiter)
-    implementation(libs.junit.platform.launcher)
+    implementation(libs.toml.get4koma())
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.junit.platform.launcher)
 }
 
 tasks.test {
@@ -40,19 +42,14 @@ tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions.jvmTarget = "17"
 }
 
-val sourcesJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("sources")
-    from(sourceSets.main.get().allSource)
-}
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            groupId = (parent ?: rootProject).group.toString()
-            version = (parent ?: rootProject).version.toString()
-            artifactId = project.name
-            from(components["java"])
-            artifact(sourcesJar.get())
-        }
+jlink {
+    options.set(
+        listOf(
+            "--strip-debug", "--compress", "2", "--no-header-files", "--no-man-pages"
+        )
+    )
+    launcher {
+        name = "easy-connect"
+        jvmArgs = listOf()
     }
-    includeRepositories(project)
 }

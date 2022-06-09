@@ -1,0 +1,27 @@
+= EasyConnect Kotlin
+
+____
+
+EasyConnect Kotlin 实现，包括协议和通信算法以及文档
+
+____
+
+== 特性
+
+* 完全由 Kotlin 实现
+* 支持完美前向保密
+* 支持协议协商
+
+== 快速开始
+
+项目概要文档可参考 link:assets/docs/README.adoc[README] .
+
+//TODO()
+
+== 更新日志
+
+//TODO()
+
+== LICENSE
+
+此项目使用 *GNU GENERAL PUBLIC LICENSE v3*，更多详情请查看 link:./LICENSE[License文件]

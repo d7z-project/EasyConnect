@@ -6,6 +6,9 @@ buildscript {
         mavenLocal()
         mavenCentral()
         maven("https://plugins.gradle.org/m2/")
+        maven {
+            url = uri("https://jitpack.io")
+        }
     }
     dependencies {
         classpath(libs.bundles.plugins)
@@ -17,6 +20,9 @@ allprojects {
         mavenLocal()
         mavenCentral()
         maven("https://plugins.gradle.org/m2/")
+        maven {
+            url = uri("https://jitpack.io")
+        }
     }
 }
 

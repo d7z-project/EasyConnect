@@ -1,3 +1,4 @@
-rootProject.name = "KotlinProjectTemplate"
+rootProject.name = "EasyConnectKt"
 include("bom")
-include("template")
+include("net-cli")
+include("net-core")
