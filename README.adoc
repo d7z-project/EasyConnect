@@ -16,6 +16,8 @@ ____
 
 项目概要文档可参考 link:assets/docs/README.adoc[README] .
 
+include::assets/docs/README.adoc[in]
+
 //TODO()
 
 == 更新日志
