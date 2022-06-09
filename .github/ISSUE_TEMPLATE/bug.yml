@@ -1,0 +1,64 @@
+name: Bug 反馈
+description: Bug 反馈模板
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你的反馈!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 你遇到了什么问题?
+      description: 请告诉我们发生了什么,项目编译/运行出现了什么问题.
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 项目版本
+      description: 你当前的使用版本是多少？
+      placeholder: "exp：1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: runtime-kotlin
+    attributes:
+      label: Kotlin 版本
+      description: 你项目依赖的 `Kotlin` 版本是多少？
+      placeholder: "exp：1.6.10"
+    validations:
+      required: true
+  - type: input
+    id: runtime-java
+    attributes:
+      label: Java 版本
+      description: 你项目运行时使用的 `Java` 版本是多少？
+      placeholder: "exp：Temurin-17.0.3+7"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 详细的错误日志
+      description: 请粘贴详细的错误日志，以方便我们快速定位问题。
+      render: "shell"
+  - type: textarea
+    id: other
+    attributes:
+      label: 补充说明
+      description: 如果还有什么其他的补充说明，请告诉我们，例如操作系统信息等等，如果与此问题无关则无需填写。
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: 行为守则
+      description: |
+        提交此问题，则表明你已经确认现有 Issues 下不存在类似问题，且此问题可以复现。
+      options:
+        - label: 我同意此行为守则
+          required: true
