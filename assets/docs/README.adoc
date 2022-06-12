@@ -1,12 +1,83 @@
-= EasyConnect Design
+= EasyConnect 设计
 
-== 核心功能
+== 功能设计
 
+=== 核心功能
 
+已确认的功能将会在此标记
 
-[plantuml]
-----
-@startuml
-A->B
-@enduml
-----
+* [ ] 去中心化
+* [ ] 服务发现
+* [ ] 端口转发 (TCP/UDP)
+* [ ] 负载均衡/故障转移
+* [ ] 前向保密
+* [ ] 支持 TCP/UDP 互联
+* [ ] 支持 IPv4/IPv6
+
+=== 扩展功能
+
+部分扩展功能将会在此标记
+
+* [ ] 提供 HTTP/HTTPS 路由
+* [ ] 提供外部监控
+* [ ] NAT to NAT
+
+=== 不会实现的功能
+
+近期不考虑实现的功能将会在此标记
+
+* 多个集群互联
+* 提供Socks5/Http代理
+
+== 未来计划
+
+* 项目转换成 Kotlin Multiplatform
+
+== 系统设计
+
+=== 模块设计
+
+==== 核心模块 `net-core`
+
+项目的核心组件，包含有：
+
+* 数据包管理
+** 数据包加/解密
+** 数据包路由
+** 数据包过滤
+
+==== 加密模块 `net-crypto`
+
+项目使用所有加密、摘要算法均在此模块实现
+
+==== TCP通信模块 `net-proto-tcp`
+
+基于TCP实现程序网络通信
+
+==== UDP通信模块 `net-proto-udp`
+
+基于UDP实现程序网络通信
+
+==== WS通信模块 `net-proto-websocket`
+
+基于WebSocket实现程序网络通信
+
+==== 服务通信插件 `net-plugin-service-context`
+
+项目外围实现，基于通道实现服务管理、服务发现、服务级负载均衡、故障转移
+
+==== HTTP路由插件 `net-plugin-http-route`
+
+项目外围实现，绑定 Service 处理 HTTP/HTTPS请求，可将某一路径或域名请求转发至某一服务
+
+==== NAT-TO-NAT插件 `net-plugin-nat`
+
+项目外围实现，负责 Nat to Nat 的穿透，不保证一定成功
+
+==== 证书管理插件 `net-plugin-cert-manager`
+
+项目外围实现，负责维护证书和自动化证书续签（需要配置根证书密钥）
+
+==== Web控制面板插件 `net-plugin-web-panel`
+
+项目外围实现，暴露 HTTP API 和 Web 控制台

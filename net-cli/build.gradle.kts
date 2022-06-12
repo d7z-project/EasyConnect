@@ -6,7 +6,7 @@ plugins {
     id("org.beryx.jlink")
     application
 }
-java.sourceCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_11
 
 val compileKotlin: KotlinCompile by tasks
 val compileJava: JavaCompile by tasks
@@ -39,13 +39,13 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions.jvmTarget = "17"
+    kotlinOptions.jvmTarget = "11"
 }
 
 jlink {
     options.set(
         listOf(
-            "--strip-debug", "--compress", "2", "--no-header-files", "--no-man-pages"
+            "--strip-debug", "--compress", "2", "--no-header-files", "--no-man-pages", "--vm", "server"
         )
     )
     launcher {

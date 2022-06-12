@@ -2,10 +2,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
+    kotlin("plugin.serialization")
     id("org.jlleitschuh.gradle.ktlint")
     `maven-publish`
 }
-java.sourceCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_11
 
 val compileKotlin: KotlinCompile by tasks
 val compileJava: JavaCompile by tasks
@@ -19,6 +20,7 @@ dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
     testImplementation(libs.junit.jupiter)
+    testImplementation(libs.kotlinx.serialization.json)
     testImplementation(libs.junit.platform.launcher)
 }
 
@@ -30,7 +32,7 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions.jvmTarget = "17"
+    kotlinOptions.jvmTarget = "11"
 }
 
 val sourcesJar by tasks.registering(Jar::class) {

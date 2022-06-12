@@ -18,7 +18,7 @@ dependencies {
 
 publishing {
     publications {
-        create<MavenPublication>("bom") {
+        create<MavenPublication>("maven") {
             from(components.getByName("javaPlatform"))
             groupId = rootProject.group.toString()
             artifactId = project.name

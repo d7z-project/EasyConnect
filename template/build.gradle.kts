@@ -6,7 +6,7 @@ plugins {
     `maven-publish`
     application
 }
-java.sourceCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_11
 
 val compileKotlin: KotlinCompile by tasks
 val compileJava: JavaCompile by tasks
@@ -37,7 +37,7 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions.jvmTarget = "17"
+    kotlinOptions.jvmTarget = "11"
 }
 
 val sourcesJar by tasks.registering(Jar::class) {
