@@ -1,5 +1,6 @@
 rootProject.name = "EasyConnectKt"
 include("bom")
+include("net-api")
 include("net-cli")
 include("net-core")
 include("net-crypto")

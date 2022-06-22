@@ -1,4 +1,4 @@
-module gradle.kotlin.template {
+module org.d7z.net.proto.udp {
     requires kotlin.reflect;
     requires kotlin.stdlib;
     opens com.github.template;

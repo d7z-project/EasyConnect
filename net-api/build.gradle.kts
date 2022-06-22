@@ -4,7 +4,6 @@ plugins {
     kotlin("jvm")
     id("org.jlleitschuh.gradle.ktlint")
     `maven-publish`
-    application
 }
 java.sourceCompatibility = JavaVersion.VERSION_11
 
@@ -14,12 +13,6 @@ compileKotlin.destinationDirectory.set(compileJava.destinationDirectory.get())
 
 java {
     modularity.inferModulePath.set(true)
-}
-
-application {
-    // 启动类配置
-    mainModule.set("gradle.kotlin.template")
-    mainClass.set("com.github.template.MainKt")
 }
 
 dependencies {

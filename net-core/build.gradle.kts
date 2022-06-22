@@ -19,8 +19,10 @@ java {
 dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
+    implementation(project(":net-crypto"))
+    api(project(":net-api"))
+    implementation(libs.kotlinx.serialization.json)
     testImplementation(libs.junit.jupiter)
-    testImplementation(libs.kotlinx.serialization.json)
     testImplementation(libs.junit.platform.launcher)
 }
 

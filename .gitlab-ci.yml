@@ -1,0 +1,15 @@
+stages:
+  - build
+
+build:
+  variables:
+    DEBUG: "true"
+  image: ${CI_REGISTRY}/public/java-runtime:11
+  stage: build
+  before_script:
+    - mkdir -p ~/.gradle
+    - echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
+    - bash chmod +x gradlew
+    - bash ./gradlew clean
+  script:
+    - bash ./gradlew build

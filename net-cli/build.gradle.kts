@@ -26,7 +26,6 @@ dependencies {
     implementation(project(":net-core"))
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
-    implementation(libs.toml.get4koma())
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.junit.platform.launcher)
 }

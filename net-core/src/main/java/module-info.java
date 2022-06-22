@@ -1,4 +1,4 @@
-module org.d7z.net.connect {
+module org.d7z.net.connect.core {
     requires kotlin.reflect;
     requires kotlin.stdlib;
     opens org.d7z.net.connect;

@@ -18,6 +18,7 @@ java {
 dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
+    implementation(project(":net-api"))
     implementation(libs.junit.jupiter)
     implementation(libs.junit.platform.launcher)
 }
