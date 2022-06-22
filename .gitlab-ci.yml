@@ -9,7 +9,7 @@ build:
   before_script:
     - mkdir -p ~/.gradle
     - echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
-    - bash chmod +x gradlew
+    - chmod +x gradlew
     - bash ./gradlew clean
   script:
     - bash ./gradlew build

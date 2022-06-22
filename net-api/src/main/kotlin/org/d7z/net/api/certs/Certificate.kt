@@ -35,6 +35,7 @@ data class Certificate(
                 it.forEach { data -> this.append(data.trim()).append("\r\n") }
             }.toString().toByteArray(Charsets.ISO_8859_1)
         }
+        TODO()
     }
 
     companion object {
