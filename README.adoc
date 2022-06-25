@@ -2,11 +2,7 @@
 
 *此项目还在开发中.*
 
-____
-
-EasyConnect Kotlin 实现，包括协议和通信算法以及文档
-
-____
+*注意*：此仓库位于 link:https://gitlab.open-edgn.cn/d7z-project/EasyConnectKt[d7z-project/EasyConnectKt] ，Github 为镜像地址。
 
 == 特性
 
